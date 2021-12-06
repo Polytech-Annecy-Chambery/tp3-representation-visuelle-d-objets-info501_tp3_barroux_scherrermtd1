@@ -19,7 +19,7 @@ def Q1a():
     return Configuration()
     
 def Q1b_f():
-    return Configuration({'screenPosition': -5, 'xAxisColor': [1, 0, 1]}). \
+    return Configuration({'screenPosition': -5, 'xAxisColor': [1, 1, 0]}). \
         setParameter('yAxisColor', [0,1,1])
         
 def Q2b():
