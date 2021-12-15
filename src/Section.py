@@ -84,10 +84,10 @@ class Section:
         
     # Draws the edges
     def drawEdges(self):
-        # A compléter en remplaçant pass par votre code        
+        # A compléter en remplaçant pass par votre code     
+        gl.glPushMatrix()
+        gl.glTranslatef(0, -2, 0)
         for face in self.faces:
-            gl.glPushMatrix()
-            gl.glTranslatef(0, -2, 0)
             gl.glPolygonMode(gl.GL_FRONT_AND_BACK, gl.GL_LINE) # on trace les faces : GL_FILL
             gl.glBegin(gl.GL_QUADS) # Tracé d’un quadrilatère
             gl.glColor3fv([0.5*0.5, 0.5*0.5, 0.5*0.5]) # Couleur gris moyen
@@ -96,16 +96,16 @@ class Section:
             gl.glVertex3fv(self.vertices[face[2]])
             gl.glVertex3fv(self.vertices[face[3]])
             gl.glEnd()
-            gl.glPopMatrix()
+        gl.glPopMatrix()
                     
     # Draws the faces
     def draw(self):
         # A compléter en remplaçant pass par votre code
         if self.parameters['edges']==True:
             self.drawEdges()
+        gl.glPushMatrix()
+        gl.glTranslatef(0, -2, 0)
         for face in self.faces:
-            gl.glPushMatrix()
-            gl.glTranslatef(0, -2, 0)
             gl.glPolygonMode(gl.GL_FRONT_AND_BACK, gl.GL_FILL) # on trace les faces : GL_FILL
             gl.glBegin(gl.GL_QUADS) # Tracé d’un quadrilatère
             gl.glColor3fv([0.5, 0.5, 0.5]) # Couleur gris moyen
@@ -114,6 +114,6 @@ class Section:
             gl.glVertex3fv(self.vertices[face[2]])
             gl.glVertex3fv(self.vertices[face[3]])
             gl.glEnd()
-            gl.glPopMatrix()
+        gl.glPopMatrix()
         
   

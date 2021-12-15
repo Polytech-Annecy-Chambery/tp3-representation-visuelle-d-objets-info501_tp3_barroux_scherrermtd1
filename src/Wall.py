@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Nov 16 19:47:50 2017
-
 @author: lfoul
 """
 import OpenGL.GL as gl
@@ -41,6 +40,7 @@ class Wall:
         self.parentSection = Section({'width': self.parameters['width'], \
                                       'height': self.parameters['height'], \
                                       'thickness': self.parameters['thickness'], \
+                                      'orientation' : self.parameters['orientation'], \
                                       'color': self.parameters['color'],
                                       'position': self.parameters['position']})
         self.objects.append(self.parentSection) 
@@ -68,6 +68,11 @@ class Wall:
                     
     # Draws the faces
     def draw(self):
-        # A compléter en remplaçant pass par votre code
-        pass
+        gl.glPushMatrix()
+        gl.glRotate(self.parameters['orientation'],0,0,1)
+        for i in self.objects:
+            i.draw()
+        gl.glPopMatrix()
+        print(Wall,self.parameters)
+            
   
